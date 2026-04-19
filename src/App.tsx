@@ -381,24 +381,24 @@ const FORUM_TOPICS = [
 ];
 
 const SALA_MENDOZA_GALLERY = [
-  { id: 1, url: './sala-mendoza/foto_0.png', title: 'Exposición de Carteles', size: 'large' },
-  { id: 2, url: './sala-mendoza/foto_2.png', title: 'Vida en la Sala', size: 'medium' },
-  { id: 3, url: './sala-mendoza/foto_3.png', title: 'Archivos Históricos', size: 'small' },
-  { id: 4, url: './sala-mendoza/foto_4.png', title: 'Documentación de Arte', size: 'small' },
-  { id: 5, url: './sala-mendoza/foto_5.png', title: 'Comunidad Sala Mendoza', size: 'medium' },
-  { id: 6, url: './sala-mendoza/foto_6.png', title: 'Instalación Suspendida', size: 'medium' },
-  { id: 7, url: './sala-mendoza/foto_7.png', title: 'Galería de Pintura', size: 'small' },
-  { id: 8, url: './sala-mendoza/foto_8.png', title: 'Mural Geométrico', size: 'large' },
-  { id: 9, url: './sala-mendoza/foto_9.png', title: 'Tríptico Abstracto', size: 'medium' },
-  { id: 10, url: './sala-mendoza/foto_10.png', title: 'Enfoque Artístico', size: 'small' },
-  { id: 11, url: './sala-mendoza/foto_11.png', title: 'Artesanía y Diseño', size: 'medium' },
-  { id: 12, url: './sala-mendoza/foto_12.png', title: 'Perspectiva de Salas', size: 'large' },
-  { id: 13, url: './sala-mendoza/foto_13.png', title: 'Mirada Atenta', size: 'small' },
+  { id: 1, url: '/sala-mendoza/foto_0.png', title: 'Exposición de Carteles', size: 'large' },
+  { id: 2, url: '/sala-mendoza/foto_2.png', title: 'Vida en la Sala', size: 'medium' },
+  { id: 3, url: '/sala-mendoza/foto_3.png', title: 'Archivos Históricos', size: 'small' },
+  { id: 4, url: '/sala-mendoza/foto_4.png', title: 'Documentación de Arte', size: 'small' },
+  { id: 5, url: '/sala-mendoza/foto_5.png', title: 'Comunidad Sala Mendoza', size: 'medium' },
+  { id: 6, url: '/sala-mendoza/foto_6.png', title: 'Instalación Suspendida', size: 'medium' },
+  { id: 7, url: '/sala-mendoza/foto_7.png', title: 'Galería de Pintura', size: 'small' },
+  { id: 8, url: '/sala-mendoza/foto_8.png', title: 'Mural Geométrico', size: 'large' },
+  { id: 9, url: '/sala-mendoza/foto_9.png', title: 'Tríptico Abstracto', size: 'medium' },
+  { id: 10, url: '/sala-mendoza/foto_10.png', title: 'Enfoque Artístico', size: 'small' },
+  { id: 11, url: '/sala-mendoza/foto_11.png', title: 'Artesanía y Diseño', size: 'medium' },
+  { id: 12, url: '/sala-mendoza/foto_12.png', title: 'Perspectiva de Salas', size: 'large' },
+  { id: 13, url: '/sala-mendoza/foto_13.png', title: 'Mirada Atenta', size: 'small' },
 ];
 
 // --- Constants ---
-const LOGO_TRANSPARENT = "./Logo_transparente.png";
-const LOGO_BLACK = "./Logo_negro.png";
+const LOGO_TRANSPARENT = "/Logo_transparente.png";
+const LOGO_BLACK = "/Logo_negro.png";
 
 // --- Components ---
 
@@ -633,7 +633,7 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-white"></div>
-              <Logo className="h-12" src="./logo_blanco.jpg" />
+              <Logo className="h-12" src="/logo_blanco.jpg" />
               <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">Plataforma Global de Arte</span>
             </div>
             <h1 className="text-7xl sm:text-[10rem] font-black tracking-tighter leading-[0.8] mb-12 text-white uppercase">
@@ -715,7 +715,7 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
              >
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[600px]">
                   <img 
-                    src="./sala-mendoza/foto_12.png" 
+                    src="/sala-mendoza/foto_12.png" 
                     alt="Sala Mendoza Preview" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -841,7 +841,7 @@ const SalaMendozaView = () => {
            </button>
         </div>
         <div className="h-64 rounded-[3rem] overflow-hidden">
-           <img src="./sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+           <img src="/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
       </div>
     </div>
