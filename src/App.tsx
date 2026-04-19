@@ -402,12 +402,28 @@ const LOGO_BLACK = "https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/pub
 
 // --- Components ---
 
+// Loads external images via fetch() to bypass browser no-cors restrictions on img tags
+const RemoteImage = ({ src, alt, className, style }: { src: string, alt: string, className?: string, style?: React.CSSProperties }) => {
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  useEffect(() => {
+    let objectUrl: string;
+    fetch(src)
+      .then(r => r.blob())
+      .then(blob => {
+        objectUrl = URL.createObjectURL(blob);
+        setBlobUrl(objectUrl);
+      })
+      .catch(() => setBlobUrl(src)); // fallback to original src on error
+    return () => { if (objectUrl) URL.revokeObjectURL(objectUrl); };
+  }, [src]);
+  return <img src={blobUrl || ''} alt={alt} className={className} style={style} />;
+};
+
 const Logo = ({ className = "h-8", mode = "on-light", src }: { className?: string, mode?: "on-light" | "on-dark", src?: string }) => (
-  <img 
-    src={src || (mode === "on-dark" ? LOGO_TRANSPARENT : LOGO_BLACK)} 
-    alt="Arte sin Frontera Logo" 
+  <RemoteImage
+    src={src || (mode === "on-dark" ? LOGO_TRANSPARENT : LOGO_BLACK)}
+    alt="Arte sin Frontera Logo"
     className={`${className} object-contain`}
-    referrerPolicy="no-referrer"
   />
 );
 
@@ -714,11 +730,10 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
                viewport={{ once: true }}
              >
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[600px]">
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_12.png" 
-                    alt="Sala Mendoza Preview" 
+                  <RemoteImage
+                    src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_12.png"
+                    alt="Sala Mendoza Preview"
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
                      <p className="text-white text-sm font-bold uppercase tracking-[0.3em]">Vista de Instalación / Sala Mendoza</p>
@@ -814,11 +829,10 @@ const SalaMendozaView = () => {
               item.size === 'medium' ? 'md:col-span-2' : ''
             }`}
           >
-             <img 
-               src={item.url} 
-               alt={item.title} 
+             <RemoteImage
+               src={item.url}
+               alt={item.title}
                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-               referrerPolicy="no-referrer"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
                <span className="text-white text-[10px] font-bold uppercase tracking-[0.3em] mb-2 opacity-60">Archivo Sala Mendoza</span>
@@ -841,7 +855,7 @@ const SalaMendozaView = () => {
            </button>
         </div>
         <div className="h-64 rounded-[3rem] overflow-hidden">
-           <img src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+           <RemoteImage src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
