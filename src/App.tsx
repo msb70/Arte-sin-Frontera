@@ -29,13 +29,14 @@ import {
   BookOpen,
   Clock,
   CheckCircle,
-  Check
+  Check,
+  Library
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from "@google/genai";
 
 // --- Types ---
-type Module = 'home' | 'marketplace' | 'academy' | 'becas' | 'circulation' | 'community' | 'signup';
+type Module = 'home' | 'marketplace' | 'academy' | 'becas' | 'circulation' | 'community' | 'sala-mendoza' | 'signup';
 
 interface ArtPiece {
   id: string;
@@ -379,7 +380,36 @@ const FORUM_TOPICS = [
   }
 ];
 
+const SALA_MENDOZA_GALLERY = [
+  { id: 1, url: '/sala-mendoza/foto_0.png', title: 'Exposición de Carteles', size: 'large' },
+  { id: 2, url: '/sala-mendoza/foto_2.png', title: 'Vida en la Sala', size: 'medium' },
+  { id: 3, url: '/sala-mendoza/foto_3.png', title: 'Archivos Históricos', size: 'small' },
+  { id: 4, url: '/sala-mendoza/foto_4.png', title: 'Documentación de Arte', size: 'small' },
+  { id: 5, url: '/sala-mendoza/foto_5.png', title: 'Comunidad Sala Mendoza', size: 'medium' },
+  { id: 6, url: '/sala-mendoza/foto_6.png', title: 'Instalación Suspendida', size: 'medium' },
+  { id: 7, url: '/sala-mendoza/foto_7.png', title: 'Galería de Pintura', size: 'small' },
+  { id: 8, url: '/sala-mendoza/foto_8.png', title: 'Mural Geométrico', size: 'large' },
+  { id: 9, url: '/sala-mendoza/foto_9.png', title: 'Tríptico Abstracto', size: 'medium' },
+  { id: 10, url: '/sala-mendoza/foto_10.png', title: 'Enfoque Artístico', size: 'small' },
+  { id: 11, url: '/sala-mendoza/foto_11.png', title: 'Artesanía y Diseño', size: 'medium' },
+  { id: 12, url: '/sala-mendoza/foto_12.png', title: 'Perspectiva de Salas', size: 'large' },
+  { id: 13, url: '/sala-mendoza/foto_13.png', title: 'Mirada Atenta', size: 'small' },
+];
+
+// --- Constants ---
+const LOGO_TRANSPARENT = "/Logo_transparente.png";
+const LOGO_BLACK = "/Logo_negro.png";
+
 // --- Components ---
+
+const Logo = ({ className = "h-8", mode = "on-light", src }: { className?: string, mode?: "on-light" | "on-dark", src?: string }) => (
+  <img 
+    src={src || (mode === "on-dark" ? LOGO_TRANSPARENT : LOGO_BLACK)} 
+    alt="Arte sin Frontera Logo" 
+    className={`${className} object-contain`}
+    referrerPolicy="no-referrer"
+  />
+);
 
 const Navbar = ({ activeModule, setActiveModule }: { activeModule: Module, setActiveModule: (m: Module) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -391,15 +421,16 @@ const Navbar = ({ activeModule, setActiveModule }: { activeModule: Module, setAc
     { id: 'becas', label: 'Becas', icon: <Award size={18} /> },
     { id: 'circulation', label: 'Circulación', icon: <Globe size={18} /> },
     { id: 'community', label: 'Comunidad', icon: <Users size={18} /> },
+    { id: 'sala-mendoza', label: 'Sala Mendoza', icon: <Library size={18} /> },
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveModule('home')}>
-            <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold italic">A</div>
-            <span className="text-xl font-bold tracking-tighter uppercase">Arte sin <span className="text-gray-400 font-light">Frontera</span></span>
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveModule('home')}>
+            <Logo className="h-10" mode="on-light" />
+            <span className="text-xl font-bold tracking-tighter uppercase hidden sm:block">Arte sin <span className="text-gray-400 font-light">Frontera</span></span>
           </div>
           
           {/* Desktop Nav */}
@@ -602,11 +633,12 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-white"></div>
+              <Logo className="h-12" src="/logo_blanco.jpg" />
               <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">Plataforma Global de Arte</span>
             </div>
             <h1 className="text-7xl sm:text-[10rem] font-black tracking-tighter leading-[0.8] mb-12 text-white uppercase">
               Arte sin <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white italic font-light">Frontera</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00aeef] via-[#fff200] to-[#ec008c] italic font-light">Frontera</span>
             </h1>
             <p className="text-xl text-gray-300 mb-12 max-w-xl leading-relaxed font-light">
               Donde la visión artística se encuentra con la oportunidad global. 
@@ -672,6 +704,47 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
         </div>
       </section>
 
+      {/* Sala Mendoza Preview */}
+      <section className="bg-gray-50 py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+             >
+                <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[600px]">
+                  <img 
+                    src="/sala-mendoza/foto_12.png" 
+                    alt="Sala Mendoza Preview" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
+                     <p className="text-white text-sm font-bold uppercase tracking-[0.3em]">Vista de Instalación / Sala Mendoza</p>
+                  </div>
+                </div>
+             </motion.div>
+             <div className="space-y-8">
+                <div className="bg-black text-white px-4 py-1 inline-block rounded-full text-[10px] font-bold uppercase tracking-widest">Aliado Estratégico</div>
+                <h2 className="text-6xl font-black uppercase tracking-tighter leading-tight">Explora el Legado de <br /> <span className="italic font-light text-gray-400">Sala Mendoza</span></h2>
+                <p className="text-xl text-gray-600 leading-relaxed max-w-lg font-light">
+                  Sumérgete en la historia visual de uno de los espacios más icónicos del arte contemporáneo latinoamericano. 
+                  Desde carteles históricos hasta instalaciones vanguardistas, ahora parte de nuestra red global.
+                </p>
+                <div className="pt-4">
+                  <button 
+                    onClick={() => onNavigate('sala-mendoza')}
+                    className="px-12 py-6 bg-black text-white font-black rounded-full hover:bg-gray-800 transition-all uppercase tracking-widest text-xs shadow-xl shadow-black/20"
+                  >
+                    Ver Galería Completa
+                  </button>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Section - Artistic Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -701,6 +774,79 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
   );
 };
 
+
+const SalaMendozaView = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      {/* Editorial Header */}
+      <div className="mb-24 text-center max-w-4xl mx-auto">
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8 }}
+        >
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px w-10 bg-black"></div>
+            <p className="text-xs font-bold uppercase tracking-[0.5em] text-gray-500">Curaduría e Historia</p>
+            <div className="h-px w-10 bg-black"></div>
+          </div>
+          <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-10">
+            Sala <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00aeef] via-[#fff200] to-[#ec008c] italic font-light">Mendoza</span>
+          </h1>
+          <p className="text-2xl text-gray-600 font-light leading-relaxed">
+            Explora la riqueza visual y el legado de uno de los espacios más vibrantes del arte contemporáneo. 
+            Una inmersión profunda en sus archivos, exposiciones y comunidad.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Bento-style Gallery */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-[300px]">
+        {SALA_MENDOZA_GALLERY.map((item, i) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.05 }}
+            viewport={{ once: true }}
+            className={`group relative rounded-[2.5rem] overflow-hidden cursor-zoom-in ${
+              item.size === 'large' ? 'md:col-span-2 md:row-span-2' : 
+              item.size === 'medium' ? 'md:col-span-2' : ''
+            }`}
+          >
+             <img 
+               src={item.url} 
+               alt={item.title} 
+               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+               referrerPolicy="no-referrer"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
+               <span className="text-white text-[10px] font-bold uppercase tracking-[0.3em] mb-2 opacity-60">Archivo Sala Mendoza</span>
+               <h3 className="text-white text-2xl font-black uppercase tracking-tighter leading-none">{item.title}</h3>
+             </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Contact Section for Sala Mendoza */}
+      <div className="mt-40 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div>
+           <h2 className="text-5xl font-black uppercase tracking-tighter leading-tight mb-8">Conecta con la <br /><span className="italic font-light">Sala Mendoza</span></h2>
+           <p className="text-gray-600 text-lg mb-10 leading-relaxed">
+             Para consultas sobre obras, archivos históricos o propuestas de colaboración directa con la Sala Mendoza, 
+             puedes contactar directamente a su equipo de curaduría.
+           </p>
+           <button className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-2 hover:gap-6 transition-all">
+             Contactar Curadores <ArrowRight size={16} />
+           </button>
+        </div>
+        <div className="h-64 rounded-[3rem] overflow-hidden">
+           <img src="/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ArtCard: React.FC<{ art: ArtPiece }> = ({ art }) => {
   return (
@@ -1475,6 +1621,7 @@ export default function App() {
       case 'becas': return <BecasView />;
       case 'circulation': return <CirculationView />;
       case 'community': return <CommunityView />;
+      case 'sala-mendoza': return <SalaMendozaView />;
       case 'signup': return <SignUpView onComplete={() => setActiveModule('home')} />;
       default: return <HomeView onNavigate={setActiveModule} />;
     }
@@ -1505,8 +1652,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold italic">A</div>
+              <div className="flex items-center gap-3 mb-6">
+                <Logo className="h-12" mode="on-light" />
                 <span className="text-xl font-bold tracking-tighter uppercase">Arte sin <span className="text-gray-400 font-light">Frontera</span></span>
               </div>
               <p className="text-gray-500 max-w-sm mb-8">
