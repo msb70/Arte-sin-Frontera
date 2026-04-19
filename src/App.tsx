@@ -381,42 +381,55 @@ const FORUM_TOPICS = [
 ];
 
 const SALA_MENDOZA_GALLERY = [
-  { id: 1, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_0.png', title: 'Exposición de Carteles', size: 'large' },
-  { id: 2, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_2.png', title: 'Vida en la Sala', size: 'medium' },
-  { id: 3, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_3.png', title: 'Archivos Históricos', size: 'small' },
-  { id: 4, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_4.png', title: 'Documentación de Arte', size: 'small' },
-  { id: 5, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_5.png', title: 'Comunidad Sala Mendoza', size: 'medium' },
-  { id: 6, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_6.png', title: 'Instalación Suspendida', size: 'medium' },
-  { id: 7, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_7.png', title: 'Galería de Pintura', size: 'small' },
-  { id: 8, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_8.png', title: 'Mural Geométrico', size: 'large' },
-  { id: 9, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_9.png', title: 'Tríptico Abstracto', size: 'medium' },
-  { id: 10, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_10.png', title: 'Enfoque Artístico', size: 'small' },
-  { id: 11, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_11.png', title: 'Artesanía y Diseño', size: 'medium' },
-  { id: 12, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_12.png', title: 'Perspectiva de Salas', size: 'large' },
-  { id: 13, url: 'https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_13.png', title: 'Mirada Atenta', size: 'small' },
+  { id: 1, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_0.png', title: 'Exposición de Carteles', size: 'large' },
+  { id: 2, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_2.png', title: 'Vida en la Sala', size: 'medium' },
+  { id: 3, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_3.png', title: 'Archivos Históricos', size: 'small' },
+  { id: 4, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_4.png', title: 'Documentación de Arte', size: 'small' },
+  { id: 5, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_5.png', title: 'Comunidad Sala Mendoza', size: 'medium' },
+  { id: 6, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_6.png', title: 'Instalación Suspendida', size: 'medium' },
+  { id: 7, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_7.png', title: 'Galería de Pintura', size: 'small' },
+  { id: 8, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_8.png', title: 'Mural Geométrico', size: 'large' },
+  { id: 9, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_9.png', title: 'Tríptico Abstracto', size: 'medium' },
+  { id: 10, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_10.png', title: 'Enfoque Artístico', size: 'small' },
+  { id: 11, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_11.png', title: 'Artesanía y Diseño', size: 'medium' },
+  { id: 12, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_12.png', title: 'Perspectiva de Salas', size: 'large' },
+  { id: 13, url: 'https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_13.png', title: 'Mirada Atenta', size: 'small' },
 ];
 
 // --- Constants ---
-const LOGO_TRANSPARENT = "https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/Logo_transparente.png";
-const LOGO_BLACK = "https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/Logo_negro.png";
+const LOGO_TRANSPARENT = "https://msb70.github.io/Arte-sin-Frontera/public/Logo_transparente.png";
+const LOGO_BLACK = "https://msb70.github.io/Arte-sin-Frontera/public/Logo_negro.png";
 
 // --- Components ---
 
 // Loads external images via fetch() to bypass browser no-cors restrictions on img tags
 const RemoteImage = ({ src, alt, className, style }: { src: string, alt: string, className?: string, style?: React.CSSProperties }) => {
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [error, setError] = useState(false);
   useEffect(() => {
-    let objectUrl: string;
+    let cancelled = false;
+    let objectUrl: string | null = null;
+    setBlobUrl(null);
+    setError(false);
     fetch(src)
       .then(r => r.blob())
       .then(blob => {
+        if (cancelled) return;
         objectUrl = URL.createObjectURL(blob);
         setBlobUrl(objectUrl);
       })
-      .catch(() => setBlobUrl(src)); // fallback to original src on error
-    return () => { if (objectUrl) URL.revokeObjectURL(objectUrl); };
+      .catch(() => { if (!cancelled) setError(true); });
+    return () => {
+      cancelled = true;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
   }, [src]);
-  return <img src={blobUrl || ''} alt={alt} className={className} style={style} />;
+  // Loading placeholder — visible animated shimmer while fetch is in progress
+  if (!blobUrl && !error) {
+    return <div className={className} style={{ ...style, background: 'linear-gradient(90deg,#e0e0e0 25%,#f0f0f0 50%,#e0e0e0 75%)', backgroundSize: '200% 100%', animation: 'shimmer 1.5s infinite' }} aria-label={alt} />;
+  }
+  if (error) return <img src={src} alt={alt} className={className} style={style} />;
+  return <img src={blobUrl!} alt={alt} className={className} style={style} />;
 };
 
 const Logo = ({ className = "h-8", mode = "on-light", src }: { className?: string, mode?: "on-light" | "on-dark", src?: string }) => (
@@ -649,7 +662,7 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px w-12 bg-white"></div>
-              <Logo className="h-12" src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/logo_blanco.jpg" />
+              <Logo className="h-12" src="https://msb70.github.io/Arte-sin-Frontera/public/logo_blanco.jpg" />
               <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">Plataforma Global de Arte</span>
             </div>
             <h1 className="text-7xl sm:text-[10rem] font-black tracking-tighter leading-[0.8] mb-12 text-white uppercase">
@@ -731,7 +744,7 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
              >
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[600px]">
                   <RemoteImage
-                    src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_12.png"
+                    src="https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_12.png"
                     alt="Sala Mendoza Preview"
                     className="w-full h-full object-cover"
                   />
@@ -855,7 +868,7 @@ const SalaMendozaView = () => {
            </button>
         </div>
         <div className="h-64 rounded-[3rem] overflow-hidden">
-           <RemoteImage src="https://cdn.jsdelivr.net/gh/msb70/Arte-sin-Frontera@main/public/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" />
+           <RemoteImage src="https://msb70.github.io/Arte-sin-Frontera/public/sala-mendoza/foto_2.png" alt="Contacto" className="w-full h-full object-cover" />
         </div>
       </div>
     </div>
