@@ -618,15 +618,16 @@ const HomeView = ({ onNavigate }: { onNavigate: (m: Module) => void }) => {
   return (
     <div className="space-y-32 pb-32">
       {/* Hero */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden bg-black">
+      <section className="relative h-[90vh] flex items-center overflow-hidden bg-[#0a1628]">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://picsum.photos/seed/art-hero-2/1920/1080" 
-            alt="Hero Art" 
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            referrerPolicy="no-referrer"
+          <img
+            src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80"
+            alt="Hero Art"
+            className="w-full h-full object-cover opacity-50"
+            crossOrigin="anonymous"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/60 to-[#0a1628]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/80 via-transparent to-transparent"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
