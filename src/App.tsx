@@ -106,7 +106,7 @@ const ART_PIECES: ArtPiece[] = [
     artistBio: 'Elena es una pintora argentina con más de 10 años explorando paisajes abstractos.',
     description: 'Una exploración vibrante de los colores de la Patagonia a través de pinceladas enérgicas.',
     price: 1200,
-    image: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1541512416146-3cf58d6b27cc?w=800&q=80',
     category: 'Pintura',
     country: 'Argentina'
   },
@@ -117,7 +117,7 @@ const ART_PIECES: ArtPiece[] = [
     artistBio: 'Mateo captura la esencia de la vida citadina en Bogotá a través de su lente.',
     description: 'Serie fotográfica que documenta la arquitectura brutalista y la vida cotidiana.',
     price: 850,
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1722370022189-1ad03c283eb6?w=800&q=80',
     category: 'Fotografía',
     country: 'Colombia'
   },
@@ -128,7 +128,7 @@ const ART_PIECES: ArtPiece[] = [
     artistBio: 'Escultor mexicano enfocado en el equilibrio y la tensión de los materiales.',
     description: 'Escultura en acero que desafía la percepción del peso y el espacio.',
     price: 3400,
-    image: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1758557839522-7d6150265d39?w=800&q=80',
     category: 'Escultura',
     country: 'México'
   },
