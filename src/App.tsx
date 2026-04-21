@@ -99,71 +99,71 @@ const CDN = "https://msb70.github.io/Arte-sin-Frontera/public";
 
 // --- Mock Data ---
 const ART_PIECES: ArtPiece[] = [
-  { 
-    id: '1', 
-    title: 'Ecos del Sur', 
-    artist: 'Elena Rivas', 
+  {
+    id: '1',
+    title: 'Ecos del Sur',
+    artist: 'Elena Rivas',
     artistBio: 'Elena es una pintora argentina con más de 10 años explorando paisajes abstractos.',
     description: 'Una exploración vibrante de los colores de la Patagonia a través de pinceladas enérgicas.',
-    price: 1200, 
-    image: 'https://picsum.photos/seed/painting1/800/1000', 
-    category: 'Pintura', 
-    country: 'Argentina' 
+    price: 1200,
+    image: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=80',
+    category: 'Pintura',
+    country: 'Argentina'
   },
-  { 
-    id: '2', 
-    title: 'Fragmentos Urbanos', 
-    artist: 'Mateo Silva', 
+  {
+    id: '2',
+    title: 'Fragmentos Urbanos',
+    artist: 'Mateo Silva',
     artistBio: 'Mateo captura la esencia de la vida citadina en Bogotá a través de su lente.',
     description: 'Serie fotográfica que documenta la arquitectura brutalista y la vida cotidiana.',
-    price: 850, 
-    image: 'https://picsum.photos/seed/photo1/800/1000', 
-    category: 'Fotografía', 
-    country: 'Colombia' 
+    price: 850,
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    category: 'Fotografía',
+    country: 'Colombia'
   },
-  { 
-    id: '3', 
-    title: 'Tejido Ancestral', 
-    artist: 'Lucía Quispe', 
-    artistBio: 'Lucía rescata técnicas de tejido tradicionales de los Andes peruanos.',
-    description: 'Obra textil realizada con lana de alpaca teñida con pigmentos naturales.',
-    price: 2100, 
-    image: 'https://picsum.photos/seed/textile1/800/1000', 
-    category: 'Textil', 
-    country: 'Perú' 
-  },
-  { 
-    id: '4', 
-    title: 'Gravedad Cero', 
-    artist: 'Carlos Méndez', 
+  {
+    id: '4',
+    title: 'Gravedad Cero',
+    artist: 'Carlos Méndez',
     artistBio: 'Escultor mexicano enfocado en el equilibrio y la tensión de los materiales.',
     description: 'Escultura en acero que desafía la percepción del peso y el espacio.',
-    price: 3400, 
-    image: 'https://picsum.photos/seed/sculpture1/800/1000', 
-    category: 'Escultura', 
-    country: 'México' 
+    price: 3400,
+    image: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=800&q=80',
+    category: 'Escultura',
+    country: 'México'
   },
-  { 
-    id: '5', 
-    title: 'Luz Líquida', 
-    artist: 'Sofía Aranda', 
+  {
+    id: '5',
+    title: 'Luz Líquida',
+    artist: 'Sofía Aranda',
     artistBio: 'Artista digital chilena pionera en el uso de algoritmos generativos.',
     description: 'Composición digital que simula el movimiento del agua bajo diferentes espectros de luz.',
-    price: 1500, 
-    image: 'https://picsum.photos/seed/digital1/800/1000', 
-    category: 'Digital', 
-    country: 'Chile' 
+    price: 1500,
+    image: 'https://picsum.photos/seed/digital1/800/1000',
+    category: 'Digital',
+    country: 'Chile'
   },
-  { 
-    id: '6', 
-    title: 'Silencio Mineral', 
-    artist: 'Javier Rocha', 
+  {
+    id: '6',
+    title: 'Silencio Mineral',
+    artist: 'Javier Rocha',
     artistBio: 'Pintor uruguayo cuya obra se centra en la textura y la materia.',
     description: 'Óleo sobre lienzo con texturas que evocan formaciones geológicas antiguas.',
-    price: 950, 
-    image: 'https://picsum.photos/seed/painting2/800/1000', 
-    category: 'Pintura', 
-    country: 'Uruguay' 
+    price: 950,
+    image: 'https://picsum.photos/seed/painting2/800/1000',
+    category: 'Pintura',
+    country: 'Uruguay'
+  },
+  {
+    id: '7',
+    title: 'Campo Eterno',
+    artist: 'Valentina Cruz',
+    artistBio: 'Pintora venezolana inspirada en el postimpresionismo europeo y los paisajes del llano.',
+    description: 'Óleo sobre lienzo con cipreses y trigales que evocan la intensidad cromática de Van Gogh.',
+    price: 4800,
+    image: 'https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg',
+    category: 'Pintura',
+    country: 'Venezuela'
   },
 ];
 
