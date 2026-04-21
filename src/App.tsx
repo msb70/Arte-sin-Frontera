@@ -94,6 +94,9 @@ interface Event {
   virtualGallery: string[];
 }
 
+// --- CDN Base ---
+const CDN = "https://msb70.github.io/Arte-sin-Frontera/public";
+
 // --- Mock Data ---
 const ART_PIECES: ArtPiece[] = [
   { 
@@ -397,7 +400,6 @@ const SALA_MENDOZA_GALLERY = [
 ];
 
 // --- Constants ---
-const CDN = "https://msb70.github.io/Arte-sin-Frontera/public";
 const LOGO_TRANSPARENT = `${CDN}/Logo_transparente.png`;
 const LOGO_BLACK = `${CDN}/Logo_negro.png`;
 
